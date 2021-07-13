@@ -4,6 +4,8 @@
 
 long int strlen_staff(const char *src) {
     long int count = 0;
+    // My mistake was comparing: src == NULL, which is false all the time
+    // the right way to determine the string null terminator is below
     while(*src != '\0') {
         count++;
         src += 1;

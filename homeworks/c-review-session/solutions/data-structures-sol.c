@@ -22,10 +22,13 @@ void remove_nodes (LinkNode **node_addr, char *str) {
     while (*node_addr != NULL) {
         if (!strcmp((*node_addr)->value, str)) {
             LinkNode *to_free = *node_addr;
+            // redirect current head (`node`) to the next LinkNode
             *node_addr = to_free->next;
             free (to_free->value);
             free (to_free);
         } else {
+            // redirect node_addr to current `next` pointer
+            // modifying the value of `node_addr` pointer itself doesn't change `node` in the calling function
             node_addr = &(*node_addr)->next;
         }
     }

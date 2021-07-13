@@ -16,9 +16,12 @@ void howdy_world(int num) {
 char *string_howdy(void) {
   char *string_lit = "hello"; // String literals are stored in the Data segment.
   char stack_str[] = "hello"; // Character arrays are stored on the stack.
-  char *heap_str = malloc(4); // Malloc'd memory is stored on the heap.
+  char *heap_str = malloc(6); // Malloc'd memory is stored on the heap.
+  strcpy(heap_str, string_lit);
 
   free(heap_str);
+  // returning stack_str results in segmentation fault
+  // while returning heap_str works
   return string_lit;
 }
 

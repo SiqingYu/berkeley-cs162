@@ -12,6 +12,8 @@ char *strcpy_staff(char *dest, const char *src) {
         dest++;
         src++;
     }
+    // Note: in my GCC output, the malloc automatically initialize each str1 character as \0
+    // therefore adding trailing \0 isn't necessary below
     *dest = '\0';
     return ptr;
 }
